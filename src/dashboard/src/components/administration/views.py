@@ -183,7 +183,8 @@ def _get_shared_dirs(calculate_usage=False):
     # directory is a placeholder where the mount point of the shared directory
     # will be placed. Set `clear` to `True` if the directory can be emptied
     # and, if only certain sudirectories within the directory should be deleted,
-    # set `subdirectories` to a list of them.
+    # set `subdirectories` to a list of them. Use `&emsp;` in the description
+    # to add indentation in the table to represent subdirectories.
     dirs = collections.OrderedDict((
         ('root', {
             'description': 'Total space',
@@ -195,43 +196,43 @@ def _get_shared_dirs(calculate_usage=False):
             'clear': False,
         }),
         ('taskconfigs', {
-            'description': 'Microservice tasks configurations',
+            'description': '&emsp;Microservice tasks configurations',
             'path': 'sharedMicroServiceTasksConfigs',
             'contained_by': 'shared',
             'clear': False,
         }),
         ('watched', {
-            'description': 'Watched',
+            'description': '&emsp;Watched',
             'path': 'watchedDirectories',
             'contained_by': 'shared',
             'clear': False,
         }),
         ('workflow', {
-            'description': 'Workflow decisions',
+            'description': '&emsp;&emsp;Workflow decisions',
             'path': 'workFlowDecisions',
             'contained_by': 'watched',
             'clear': False,
         }),
         ('dips', {
-            'description': 'DIP uploads',
+            'description': '&emsp;&emsp;DIP uploads',
             'path': 'uploadedDIPs',
             'contained_by': 'watched',
             'clear': True,
         }),
         ('rejected', {
-            'description': 'Rejected',
+            'description': '&emsp;Rejected',
             'path': 'rejected',
             'contained_by': 'shared',
             'clear': True,
         }),
         ('failed', {
-            'description': 'Failed',
+            'description': '&emsp;Failed',
             'path': 'failed',
             'contained_by': 'shared',
             'clear': True,
         }),
         ('tmp', {
-            'description': 'Temporary file storage',
+            'description': '&emsp;Temporary file storage',
             'path': 'tmp',
             'contained_by': 'shared',
             'clear': True,

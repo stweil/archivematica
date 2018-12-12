@@ -32,7 +32,7 @@
         <tbody>
           {% for id, dir in usage_dirs.items %}
           <tr>
-            <td>{{ dir.description }}</td>
+            <td>{{ dir.description|safe }}</td>
             <td>
               {% if id == "root" %}
                 {{ dir.used|filesizeformat }} / {{ dir.size|filesizeformat }}
