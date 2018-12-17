@@ -195,33 +195,33 @@ def _get_shared_dirs(calculate_usage=False):
             'path': django_settings.SHARED_DIRECTORY,
             'clear': False,
         }),
-        ('taskconfigs', {
-            'description': '&emsp;Microservice tasks configurations',
-            'path': 'sharedMicroServiceTasksConfigs',
+        ('arrange', {
+            'description': '&emsp;Arrange',
+            'path': 'arrange',
             'contained_by': 'shared',
             'clear': False,
         }),
-        ('watched', {
-            'description': '&emsp;Watched',
-            'path': 'watchedDirectories',
+        ('completed', {
+            'description': '&emsp;Completed',
+            'path': 'completed',
             'contained_by': 'shared',
             'clear': False,
         }),
-        ('workflow', {
-            'description': '&emsp;&emsp;Workflow decisions',
-            'path': 'workFlowDecisions',
-            'contained_by': 'watched',
-            'clear': False,
-        }),
-        ('dips', {
-            'description': '&emsp;&emsp;DIP uploads',
-            'path': 'uploadedDIPs',
-            'contained_by': 'watched',
+        ('transfers', {
+            'description': '&emsp;&emsp;Transfers',
+            'path': 'transfers',
+            'contained_by': 'completed',
             'clear': True,
         }),
-        ('rejected', {
-            'description': '&emsp;Rejected',
-            'path': 'rejected',
+        ('currentlyProcessing', {
+            'description': '&emsp;Currently processing',
+            'path': 'currentlyProcessing',
+            'contained_by': 'shared',
+            'clear': False,
+        }),
+        ('DIPbackups', {
+            'description': '&emsp;DIP backups',
+            'path': 'DIPbackups',
             'contained_by': 'shared',
             'clear': True,
         }),
@@ -231,12 +231,84 @@ def _get_shared_dirs(calculate_usage=False):
             'contained_by': 'shared',
             'clear': True,
         }),
+        ('rejected', {
+            'description': '&emsp;Rejected',
+            'path': 'rejected',
+            'contained_by': 'shared',
+            'clear': True,
+        }),
+        ('taskconfigs', {
+            'description': '&emsp;Microservice tasks configurations',
+            'path': 'sharedMicroServiceTasksConfigs',
+            'contained_by': 'shared',
+            'clear': False,
+        }),
+        ('SIPbackups', {
+            'description': '&emsp;SIP backups',
+            'path': 'SIPbackups',
+            'contained_by': 'shared',
+            'clear': True,
+        }),
         ('tmp', {
             'description': '&emsp;Temporary file storage',
             'path': 'tmp',
             'contained_by': 'shared',
             'clear': True,
-        })
+        }),
+        ('watched', {
+            'description': '&emsp;Watched',
+            'path': 'watchedDirectories',
+            'contained_by': 'shared',
+            'clear': False,
+        }),
+        ('dips', {
+            'description': '&emsp;&emsp;DIP uploads',
+            'path': 'uploadedDIPs',
+            'contained_by': 'watched',
+            'clear': True,
+        }),
+        ('workflow', {
+            'description': '&emsp;&emsp;Workflow decisions',
+            'path': 'workFlowDecisions',
+            'contained_by': 'watched',
+            'clear': False,
+        }),
+        ('www', {
+            'description': '&emsp;Storage',
+            'path': 'www',
+            'contained_by': 'shared',
+            'clear': False,
+        }),
+        ('AIPsStore', {
+            'description': '&emsp;&emsp;AIPs storage',
+            'path': 'AIPsStore',
+            'contained_by': 'www',
+            'clear': False,
+        }),
+        ('transferBacklog', {
+            'description': '&emsp;&emsp;&emsp;Transfer backlog',
+            'path': 'transferBacklog',
+            'contained_by': 'AIPsStore',
+            'clear': False,
+        }),
+        ('tb_arrange', {
+            'description': '&emsp;&emsp;&emsp;&emsp;Arrange',
+            'path': 'arrange',
+            'contained_by': 'transferBacklog',
+            'clear': False,
+        }),
+        ('tb_originals', {
+            'description': '&emsp;&emsp;&emsp;&emsp;Originals',
+            'path': 'originals',
+            'contained_by': 'transferBacklog',
+            'clear': False,
+        }),
+        ('DIPsStore', {
+            'description': '&emsp;&emsp;DIPs storage',
+            'path': 'DIPsStore',
+            'contained_by': 'www',
+            'clear': False,
+        }),
     ))
 
     for name, dir_spec in dirs.items():
