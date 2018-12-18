@@ -33,7 +33,6 @@ urlpatterns = [
     url(r'dips/atom/edit_levels/$', views.atom_levels_of_description),
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'language/$', TemplateView.as_view(template_name='administration/language.html'), name='admin_set_language'),
-    url(r'sources/$', views.sources),
     url(r'storage/$', views.storage),
     url(r'usage/$', views.usage),
     url(r'usage/clear/(?P<dir_id>\w+)/$', views.usage_clear),
