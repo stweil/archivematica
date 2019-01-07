@@ -428,7 +428,8 @@ def _usage_get_directory_used_bytes(path):
     :returns: usage in bytes
     """
     try:
-        output = subprocess.check_output(["du", "--bytes", "--summarize", path])
+        output = subprocess.check_output(
+            ["du", "--one-file-system", "--bytes", "--summarize", path])
         return output.split("\t")[0]
     except OSError:
         logger.exception('No such directory: %s', path)
